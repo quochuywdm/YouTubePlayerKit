@@ -119,6 +119,17 @@
             // Send onAutoplayBlocked event
             sendYouTubePlayerEvent('onAutoplayBlocked');
         }
+
+        // Disable showing cc
+        function onPlayerStateChange(event) {
+            if (event.data == YT.PlayerState.PLAYING) {
+                try {
+                // Disable captions completelly
+                player.unloadModule("captions");
+                player.unloadModule("cc");
+                } catch (exception) { }
+            }
+        }
     </script>
 </body>
 
