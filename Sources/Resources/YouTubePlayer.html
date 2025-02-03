@@ -61,6 +61,12 @@
             );
             // Send onIframeAPIReady event
             sendYouTubePlayerEvent('onIframeAPIReady');
+
+            try {
+                // Disable captions completelly
+                player.unloadModule("captions");
+                player.unloadModule("cc");
+                } catch (exception) { }
         });
 
         // Set YouTubePlayer Size
